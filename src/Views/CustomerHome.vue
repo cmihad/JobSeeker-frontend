@@ -58,6 +58,10 @@ export default {
   created() {
     const data = localStorage.getItem('userInfo')
     this.userInfo = JSON.parse(data)
+    if (data) {
+    } else {
+      this.$router.push({ name: 'csLogin' })
+    }
   },
   mounted() {
     axios

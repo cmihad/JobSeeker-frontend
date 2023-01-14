@@ -31,7 +31,7 @@
             </button>
           </div>
           <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
-            <router-link to="/">
+            <router-link to="/home">
               <button class="btn bg-gray-600 text-white">Go Back</button>
             </router-link>
           </div>

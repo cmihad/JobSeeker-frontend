@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto sm:px-10">
-      <div class="block xl:grid grid-cols-1 gap-4 bg-gray-500">
+      <div class="grid grid-cols-1 gap-4 place-items-center">
         <div class="xl:h-auto xl:my-10 bg-rgb-white xl:p-16 rounded-lg">
           <div
             class="my-auto mx-auto bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-3/4 xl:w-11/12"
@@ -21,7 +21,7 @@
                 >
                 <input
                   type="text"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="First Name"
                   v-model="accountNumber"
                 />
@@ -33,7 +33,7 @@
                 >
                 <input
                   type="password"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="Password"
                   v-model="password"
                 />
@@ -41,14 +41,9 @@
             </div>
 
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+              <button class="btn btn-blue" @click="submitForm">Login</button>
               <button
-                class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
-                @click="submitForm"
-              >
-                Login
-              </button>
-              <button
-                class="btn btn-outline-secondary py-3 px-4 w-full xl:w-64 mt-3 xl:mt-0 align-top"
+                class="btn bg-blue-500 text-white mt-3"
                 @click="$router.push({ name: 'csRegister' })"
               >
                 Don't have an account? Sign up now
@@ -78,7 +73,11 @@ export default {
       axios.post(url).then((res) => {
         const userInfo = res.data
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
-        this.$router.push({ path: '/' })
+        if (userInfo.accountType == 2) {
+          this.$router.push({ path: '/admin/home' })
+        } else {
+          this.$router.push({ path: '/home' })
+        }
       })
     },
   },

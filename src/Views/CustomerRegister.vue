@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container mx-auto sm:px-10">
-      <div class="block xl:grid grid-cols-1 gap-4 bg-gray-500">
+      <div class="grid grid-cols-1 gap-4 place-items-center">
         <!-- BEGIN: Register Info -->
 
         <!-- END: Register Info -->
@@ -23,7 +23,7 @@
                 <label class="form-label text-md font-bold">First Name</label>
                 <input
                   type="text"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="First Name"
                   v-model="model.firstName"
                 />
@@ -32,7 +32,7 @@
                 <label class="form-label text-md font-bold">Last Name</label>
                 <input
                   type="text"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="Last Name"
                   v-model="model.lastName"
                 />
@@ -43,7 +43,7 @@
                 >
                 <input
                   type="email"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="abc@def.com"
                   v-model="model.email"
                 />
@@ -54,7 +54,7 @@
                 >
                 <input
                   type="tel"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="8801712345678"
                   v-model="model.phone"
                 />
@@ -63,7 +63,7 @@
                 <label class="form-label text-md font-bold">Address</label>
                 <input
                   type="tel"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="8801712345678"
                   v-model="model.address"
                 />
@@ -74,7 +74,7 @@
                 >
                 <input
                   type="password"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="Password"
                   v-model="model.password"
                 />
@@ -85,7 +85,7 @@
                 >
                 <input
                   type="password"
-                  class="intro-x login__input form-control py-3 px-4 block"
+                  class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="Confirm Password"
                   v-model="ConfirmPassword"
                 />
@@ -93,14 +93,9 @@
             </div>
 
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+              <button class="btn btn-blue" @click="submitForm">Register</button>
               <button
-                class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"
-                @click="submitForm"
-              >
-                Register
-              </button>
-              <button
-                class="btn btn-outline-secondary py-3 px-4 w-full xl:w-64 mt-3 xl:mt-0 align-top"
+                class="btn bg-blue-500 text-white mt-3"
                 @click="$router.push({ name: 'csLogin' })"
               >
                 Already have an account? Sign in
