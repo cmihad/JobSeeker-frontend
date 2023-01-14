@@ -49,13 +49,12 @@ router.beforeEach((to, from, next) => {
     to.fullPath === '/home' ||
     to.fullPath === '/customer/withdraw' ||
     to.fullPath === '/customer/deposit' ||
-    to.fullPath === '/customer/closeAccount'
+    to.fullPath === 'customer/closeAccount'
   ) {
     if (!isUserSignedIn) {
       next('/customer/login')
     }
   }
-
   next()
 })
 
