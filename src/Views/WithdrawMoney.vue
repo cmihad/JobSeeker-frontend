@@ -66,7 +66,6 @@ export default {
     submitForm() {
       const url = `https://localhost:7212/api/v1/withdraw?AccountNumber=${this.userInfo.accountNumber}&amount=${this.amount}`
       axios.post(url).then((res) => {
-        console.log(res)
         this.amount = ''
         axios
           .get(

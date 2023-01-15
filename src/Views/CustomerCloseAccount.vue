@@ -28,7 +28,6 @@ export default {
       axios
         .post(`https://localhost:7212/api/v1/deleteAccount?Id=${accountNumber}`)
         .then((res) => {
-          console.log(res)
           this.$router.push({ path: '/customer/register' })
         })
     },

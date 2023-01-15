@@ -3,6 +3,9 @@
     <div class="font-bold text-2xl text-gray-900 text-center py-4">
       Admin Section
     </div>
+    <div class="flex justify-end">
+      <button class="btn bg-red-900 text-white" @click="logout">log Out</button>
+    </div>
     <table class="outer">
       <tr>
         <th>First Name</th>
@@ -90,6 +93,11 @@ export default {
             })
         })
     },
+    logout() {
+      localStorage.clear()
+      this.$router.push({ path: '/customer/login' })
+    },
+
     generateReport(accountNumber) {
       axios
         .get(

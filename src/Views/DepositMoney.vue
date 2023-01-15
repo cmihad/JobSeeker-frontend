@@ -65,9 +65,7 @@ export default {
   methods: {
     submitForm() {
       const url = `https://localhost:7212/api/v1/deposit?AccountNumber=${this.userInfo.accountNumber}&amount=${this.amount}`
-      console.log(url)
       axios.post(url).then((res) => {
-        console.log(res)
         this.amount = ''
         axios
           .get(

@@ -9,6 +9,13 @@
       </span>
     </h3>
     <h3>
+      Account Number
+
+      <span class="font-bold text-2xl text-black" v-if="userInfo">
+        {{ userInfo.accountNumber }}
+      </span>
+    </h3>
+    <h3>
       Number of Transactions
       <span class="font-bold text-xl text-black">{{
         numberOfTransaction
