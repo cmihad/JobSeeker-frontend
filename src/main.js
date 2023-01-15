@@ -10,6 +10,8 @@ import Deposit from './Views/DepositMoney.vue'
 import Withdraw from './Views/WithdrawMoney.vue'
 import CloseAccount from './Views/CustomerCloseAccount.vue'
 import AdminHome from './Views/Admin/Home.vue'
+import JsonCSV from 'vue-json-csv'
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -59,5 +61,6 @@ router.beforeEach((to, from, next) => {
 })
 
 const app = createApp(App).use(router)
+app.component('downloadCsv', JsonCSV)
 
 app.mount('#app')

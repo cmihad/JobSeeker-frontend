@@ -45,6 +45,13 @@
             Generate Report
           </button>
         </th>
+        <th>
+          <button>
+            <download-csv :data="reportData" name="BankStatement.csv">
+              Download Data
+            </download-csv>
+          </button>
+        </th>
       </tr>
     </table>
 
@@ -62,6 +69,7 @@ export default {
     return {
       allAccounts: '',
       reportData: '',
+      newReport: '',
     }
   },
 
@@ -89,6 +97,13 @@ export default {
         )
         .then((res) => {
           this.reportData = res.data
+          this.reportData.forEach((a) => {
+            if (a.transactionType == 0) {
+              a.transactionType = 'Withdraw'
+            } else if (a.transactionType == 1) {
+              a.transactionType = 'Deposit'
+            }
+          })
         })
     },
   },
