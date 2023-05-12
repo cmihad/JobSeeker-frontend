@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue/cli-plugin-unit-jest": "^5.0.8",
     "axios": "^1.2.2",
     "jspdf": "^2.5.1",
     "vue": "^3.2.45",
