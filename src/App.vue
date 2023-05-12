@@ -1,10 +1,20 @@
 <script>
-import UserRegister from './Views/CustomerRegister.vue'
+import UserRegister from './Views/userRegister.vue'
 import CustomerHome from './Views/CustomerHome.vue'
+import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
+export default {
+  components: {
+    Navbar,
+    Footer,
+  },
+}
 </script>
 
 <template>
+  <Navbar />
   <router-view :key="$route.fullPath" />
+  <Footer />
 </template>
 
 <style scoped>

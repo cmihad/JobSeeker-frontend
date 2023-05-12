@@ -17,13 +17,13 @@
             <div class="intro-x mt-8">
               <div>
                 <label class="form-label text-md font-bold"
-                  >Account Number</label
+                  >Email Address</label
                 >
                 <input
                   type="text"
                   class="intro-x login__input form-control py-3 px-4 block border-black border-2"
                   placeholder="First Name"
-                  v-model="accountNumber"
+                  v-model="email"
                 />
               </div>
 
@@ -43,7 +43,7 @@
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
               <button class="btn btn-blue" @click="submitForm">Login</button>
               <button
-                class="btn bg-blue-500 text-white mt-3"
+                class="btn btn-alt"
                 @click="$router.push({ name: 'csRegister' })"
               >
                 Don't have an account? Sign up now
@@ -64,19 +64,20 @@ export default {
       userInfo: '',
       password: '',
       accountNumber: '',
+      email: '',
     }
   },
   created() {},
   methods: {
     submitForm() {
-      const url = `https://localhost:7212/api/v1/Login?accountNumber=${this.accountNumber}&Password=${this.password}`
+      const url = `https://localhost:7074/api/v1/Login?email=${this.email}&Password=${this.password}`
       axios.post(url).then((res) => {
         const userInfo = res.data
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
-        if (userInfo.accountType == 2) {
+        if (userInfo.accountType == 1) {
           this.$router.push({ path: '/admin/home' })
         } else {
-          this.$router.push({ path: '/home' })
+          this.$router.push({ path: '/user/edit' })
         }
       })
     },
